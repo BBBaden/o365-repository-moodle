@@ -200,4 +200,31 @@ $observers = [
         'priority'    => 200,
         'internal'    => true,
     ],
+
+    // Sharing link management.
+    [
+        'eventname'   => '\core\event\course_section_updated',
+        'callback'    => '\local_o365\feature\sharing\observers::handle_section_updated',
+        'priority'    => 200,
+        'internal'    => false,
+    ],
+    [
+        'eventname'   => '\core\event\course_module_updated',
+        'callback'    => '\local_o365\feature\sharing\observers::handle_module_updated',
+        'priority'    => 200,
+        'internal'    => false,
+    ],
+    // Additional specific events for visibility handling
+    [
+        'eventname'   => '\core\event\course_module_visibility_updated',
+        'callback'    => '\local_o365\feature\sharing\observers::handle_module_visibility_updated',
+        'priority'    => 200,
+        'internal'    => false,
+    ],
+    [
+        'eventname'   => '\core\event\course_section_visibility_updated',
+        'callback'    => '\local_o365\feature\sharing\observers::handle_section_visibility_updated',
+        'priority'    => 200,
+        'internal'    => false,
+    ],
 ];
